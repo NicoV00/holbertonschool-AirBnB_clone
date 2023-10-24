@@ -13,6 +13,7 @@ class test_class_base(unittest.TestCase):
     def test__str__(self):
         """Test __str__"""
         self.assertEqual(str(self.test)[:11], "[BaseModel]")
+
     def test_to_dict(self):
         """test_to_dict """
         bm = BaseModel()
@@ -28,8 +29,8 @@ class test_class_base(unittest.TestCase):
             test_dict[f"model{index}"] = BaseModel()
         for index, value in enumerate(test_dict.values(), 1):
             self.assertNotEqual(value.id, test_dict.get(
-                f"model{index + 1}", self.test).id
-            )
+                f"model{index + 1}", self.test).id)
+
     def test_create_kwargs(self):
         """ create class from dictionary """
         my_model = BaseModel()
@@ -52,8 +53,8 @@ class test_class_base(unittest.TestCase):
             test_dict[f"model{index}"] = BaseModel()
         for index, value in enumerate(test_dict.values(), 1):
             self.assertNotEqual(value.created_at, test_dict.get(
-                f"model{index + 1}", self.test).created_at
-            )
+                f"model{index + 1}", self.test).created_at)
+
 
 if __name__ == "__main__":
     unittest.main()

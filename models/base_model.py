@@ -6,7 +6,7 @@ from uuid import uuid4
 
 
 class BaseModel:
-    """Base Class  jnkjnk kjnkj kjh hj kj kjboui oli kjl"""
+    """Base Class"""
 
     def __init__(self, *args, **kwargs):
         """Initialize base model"""
