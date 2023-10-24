@@ -31,8 +31,8 @@ class BaseModel:
 
     def to_dict(self):
         """Return dictionary"""
-        dict = self.__dict__
-        dict["__class__"] = type(self).__name__
-        dict["created_at"] = self.created_at.isoformat()
-        dict["updated_at"] = self.updated_at.isoformat()
-        return dict
+        dic = self.__dict__.copy()
+        dic["__class__"] = type(self).__name__
+        dic["created_at"] = self.created_at.isoformat()
+        dic["updated_at"] = self.updated_at.isoformat()
+        return dic
