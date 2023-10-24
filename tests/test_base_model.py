@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 """test"""
-
 import unittest
 from models.base_model import BaseModel
- 
-test = BaseModel()
 
 
 class Testmodel(unittest.TestCase):
@@ -22,6 +19,6 @@ class Testmodel(unittest.TestCase):
         self.assertTrue(type(dic['created_at']) is str)
         self.assertTrue(type(dic['updated_at']) is str)
 
- 
+
 if __name__ == "__main__":
     unittest.main()
