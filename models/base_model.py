@@ -3,15 +3,17 @@
 from datetime import datetime
 from uuid import uuid4
 
+
 class BaseModel:
     """Base Class"""
+
     def __init__(self, *args, **kwargs):
         """Initialize base model"""
         from . import storage
         if kwargs:
             for key, value in kwargs.items():
                 if key != "__class__":
-                    if key == "created_at" or key == "updated_at": 
+                    if key == "created_at" or key == "updated_at":
                         value = datetime. strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                     setattr(self, key, value)
         else:
@@ -22,4 +24,4 @@ class BaseModel:
 
     def __str__(self):
         """Return a string"""
-        return f"[{(self).__name__}] ({self.id}) {self.__dict__}"
+        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
