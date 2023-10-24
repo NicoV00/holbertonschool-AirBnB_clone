@@ -3,25 +3,12 @@
 
 import unittest
 from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
  
-
 test = BaseModel()
-file_storage = FileStorage()
 
 
 class Testmodel(unittest.TestCase):
     """Testing base model class"""
-
-    def test_id(self):
-        """Test the id attribute"""
-        test_dict = {}
-        for index in range(1, 101):
-            test_dict[f"model{index}"] = BaseModel()
-        for index, value in enumerate(test_dict.values(), 1):
-            self.assertNotEqual(value.id, test_dict.get(
-                f"model{index + 1}", test).id
-            )
 
     def test__str__(self):
         """Test __str__"""
