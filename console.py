@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Command interpreter for the AirBnB Clone project"""
 
+
 import cmd
 
 class HBNBCommand(cmd.Cmd):
@@ -17,6 +18,10 @@ class HBNBCommand(cmd.Cmd):
         """EOF command to exit the program"""
         print()
         return True
+    
+    def emptyline(self):
+        """Do nothing on an empty line."""
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
