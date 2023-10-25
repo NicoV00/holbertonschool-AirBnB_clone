@@ -3,6 +3,7 @@
 
 from datetime import datetime
 from uuid import uuid4
+from models import storage
 
 
 class BaseModel:
@@ -21,6 +22,8 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
+            storage.new(self)
+
     def __str__(self):
         """Return a string"""
         return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
@@ -28,6 +31,8 @@ class BaseModel:
     def save(self):
         """Update model"""
         self.updated_at = datetime.now()
+
+        storage.save()
 
     def to_dict(self):
         """Return dictionary"""
