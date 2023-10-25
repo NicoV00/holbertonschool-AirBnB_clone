@@ -2,7 +2,7 @@
 """Base model created"""
 
 
-from models.engine.file_storage import storage
+import models
 from datetime import datetime
 from uuid import uuid4
 
@@ -22,6 +22,7 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """Return a string"""
@@ -30,7 +31,7 @@ class BaseModel:
     def save(self):
         """Update model"""
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """Return dictionary"""

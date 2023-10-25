@@ -2,6 +2,7 @@
 
 
 import json
+from models.base_model import BaseModel
 
 class FileStorage:
     __file_path = "file.json"
@@ -18,12 +19,12 @@ class FileStorage:
         obj_dict = {}
         for key, value in self.__objects.items():
             obj_dict[key] = value.to_dict()
-        with open(self.__file_path, 'w', encoding='utf-8') as file:
+        with open(self.__file_path, 'w', encoding='UTF8') as file:
             json.dump(obj_dict, file)
 
     def reload(self):
         try:
-            with open(self.__file_path, 'r', encoding='utf-8') as file:
+            with open(self.__file_path, 'r', encoding='UTF8') as file:
                 data = json.load(file)
                 for key, value in data.items():
                     class_name, obj_id = key.split(".")
