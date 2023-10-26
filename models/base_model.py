@@ -6,10 +6,11 @@ from uuid import uuid4
 
 
 class BaseModel:
-    """Base Class"""
+    """Base Class """
 
     def __init__(self, *args, **kwargs):
-        """Initialize base model"""
+        """Initialize base model """
+        from . import storage
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
@@ -20,17 +21,20 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            storage.new(self)
 
     def __str__(self):
-        """Return a string"""
+        """ Return a string """
         return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """Update model"""
+        """Update model """
+        from . import storage
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
-        """Return dictionary"""
+        """Return dictionary """
         dic = self.__dict__.copy()
         dic["__class__"] = type(self).__name__
         dic["created_at"] = self.created_at.isoformat()
