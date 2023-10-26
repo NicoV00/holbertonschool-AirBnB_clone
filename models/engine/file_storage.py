@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/python3
 """Store first object"""
 
@@ -20,3 +21,6 @@ class FileStorage:
 
     def reload(self):
         pass
+=======
+#!/usr/bin/python3
+>>>>>>> fd347c584b531bce13dd7eae712209317cae9e8e

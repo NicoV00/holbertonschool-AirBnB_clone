@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base model created"""
 
+
 from datetime import datetime
 from uuid import uuid4
 
