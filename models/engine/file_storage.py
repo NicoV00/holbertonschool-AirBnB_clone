@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Store first object"""
-
+import json
 from models.base_model import BaseModel
 
 
@@ -22,3 +22,10 @@ class FileStorage:
 
     def reload(self):
         """deserializes the JSON file"""
+        try:
+            with open(self.__file_path, 'r') as file:
+                for key, obj in json.load(file).items():
+                    newObj = eval(obj['__class__'])(**obj)
+                    self.__objects[key] = newObj
+        except FileNotFoundError:
+            pass
