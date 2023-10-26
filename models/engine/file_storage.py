@@ -15,10 +15,11 @@ class FileStorage:
 
     def save(self):
         """saves objects to json"""
-        jsonData = {}
+        jsData = {}
         for key, value in self.__objects.items():
-            jsonData[key] = value.to_dict()
-
+            jsData.update([(key, value.to_dict())])
+        with open(self.__file_path, 'w') as file:
+            json.dump(jsData, file)
 
     def new(self, obj):
         """new object to __objects"""
@@ -29,7 +30,8 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r') as file:
                 for key, obj in json.load(file).items():
-                    newObj = eval(obj['__class__'])(**obj)
-                    self.__objects[key] = newObj
+                    new_Obj = eval(obj['__class__'])(**obj)
+                    self.__objects[key] = new_Obj
+
         except FileNotFoundError:
             pass
