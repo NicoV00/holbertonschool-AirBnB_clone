@@ -2,9 +2,9 @@
 
 ## Description
 
-The AirBnB Clone Project is a Python application that simulates some of the basic functionalities of the Airbnb platform. It includes a command-line interface (CLI) for managing and interacting with different data models such as users, states, cities, places, reviews, and amenities. This project serves as a learning tool for building a complex software application from scratch.
+The AirBnB Clone Project is a Python application that simulates some of the basic functionalities of the Airbnb platform. It includes a command-line interface for managing and interacting with different data models such as users, states, cities, places, reviews, and amenities.
 
-## Command Interpreter (CLI)
+## Command Interpreter
 
 ### How to Start It
 
