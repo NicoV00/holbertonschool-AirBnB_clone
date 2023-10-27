@@ -86,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 print([str(value) for key,
-                value in all_objs.items() if key.split('.')[0] == args[0]])
+                    value in all_objs.items() if key.split('.')[0] == args[0]])
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id"""
