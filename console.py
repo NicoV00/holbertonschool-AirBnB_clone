@@ -89,7 +89,7 @@ class HBNBCommand(cmd.Cmd):
                     str(v) for k, v in ob.items() if k.split('.')[0] == args[0]
                 ]
                 print(filtered_values)
-            
+
     def do_update(self, arg):
         """Updates an instance based on the class name and id"""
         if not arg:
