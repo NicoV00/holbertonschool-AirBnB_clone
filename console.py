@@ -85,9 +85,8 @@ class HBNBCommand(cmd.Cmd):
             if args[0] not in models.available_classes:
                 print("** class doesn't exist **")
             else:
-                print([str(value)
-                for key, value in all_objs.items()
-                if key.split('.')[0] == args[0]])
+                print([str(value) for key,
+                value in all_objs.items() if key.split('.')[0] == args[0]])
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id"""
@@ -124,6 +123,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """Quit the program"""
         return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
