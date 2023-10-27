@@ -3,8 +3,9 @@
 
 
 from models.base_model import BaseModel
-
 """Define the Place class that inherits from BaseModel"""
+
+
 class Place(BaseModel):
     city_id = ""
     user_id = ""
