@@ -13,9 +13,8 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
-
-
     prompt = '(hbnb) '
 
     models.available_classes = {
@@ -113,22 +112,18 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     print("** no instance found **")
 
-
     def emptyline(self):
         """Do nothing on empty line"""
         pass
-
 
     def do_EOF(self, line):
         """Exit the program"""
         print("")
         return True
 
-
     def do_quit(self, arg):
         """Quit the program"""
         return True
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
