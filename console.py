@@ -16,6 +16,16 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
+    models.available_classes = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "Amenity": Amenity,
+        "Place": Place,
+        "City": City,
+        "Review": Review
+        }
+
     def do_create(self, arg):
         """Create a new instance of BaseModel and save it to JSON file"""
         if not arg:
@@ -113,14 +123,4 @@ class HBNBCommand(cmd.Cmd):
         return True
 
 if __name__ == '__main__':
-    models.storage.reload()
-    models.available_classes = {
-        "BaseModel": BaseModel,
-        "User": User,
-        "State": State,
-        "Amenity": Amenity,
-        "Place": Place,
-        "City": City,
-        "Review": Reviewn
-        }
     HBNBCommand().cmdloop()
